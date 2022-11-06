@@ -1,1 +1,1 @@
-web: gunicorn SocNetworkDemo.wsgi --log-file -
+web: gunicorn SocialNetworkDemo.config.wsgi --log-file -
