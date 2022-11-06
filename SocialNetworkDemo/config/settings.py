@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-)$5c-8+-a3nx9cbk8263%nvm_=tex^^glf^aw42k_s86uz=yjl
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['social-network-demo-uspeh.herokuapp.com','127.0.0.1']
 
 # Application definition
 
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
