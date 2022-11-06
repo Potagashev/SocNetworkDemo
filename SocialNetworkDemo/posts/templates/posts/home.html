@@ -1,5 +1,5 @@
 {% extends 'posts/base.html' %}
-<a href="{% url 'add_post' %}">Добавить публикацию</a>
 {% block content %}
+    <a href="{% url 'add_post' %}">Добавить публикацию</a>
     {% include 'posts/posts_list.html' %}
 {% endblock %}
