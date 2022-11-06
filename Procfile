@@ -1,1 +1,1 @@
-web: gunicorn SocialNetworkDemo.config.wsgi --log-file -
+web: gunicorn --pythonpath SocialNetworkDemo config.wsgi --log-file -
