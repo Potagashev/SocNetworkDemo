@@ -5,6 +5,8 @@ from .services import PostsServices, CommentsServices
 
 
 def home(request):
+    if not request.user.is_authenticated:
+        redirect('sign_in')
     posts = PostsServices().get_posts_for_home_page(request=request)
     return render(request, 'posts/home.html', context={'posts': posts})
 
