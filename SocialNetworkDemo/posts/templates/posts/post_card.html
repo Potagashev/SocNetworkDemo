@@ -1,0 +1,17 @@
+{% block content %}
+<a href="{% url 'profile' user_id=post.user.id %}"><h5>{{ post.user.username }}</h5></a>
+<a href="{% url 'post_details' post_id=post.id %}">
+    <div class="card" style="width: 40rem; margin-bottom: 12px">
+        <div class="card-body">
+            <p class="card-text">{{ post.text }}</p>
+            <p class="card-text">{{ post.pub_date }}</p>
+        </div>
+        {% if post.photo %}
+        <div class="row">
+            <img class="card-img-top" src="{{ post.photo.url }}">
+        </div>
+        {% endif %}
+    </div>
+</a>
+
+{% endblock %}

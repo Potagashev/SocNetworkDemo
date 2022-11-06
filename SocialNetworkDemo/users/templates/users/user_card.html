@@ -1,0 +1,13 @@
+{% block content %}
+
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <a href="{% url 'profile' user_id=user.id %}"><h5 class="card-title">{{ user.username }}</h5></a>
+    <h6 class="card-subtitle mb-2 text-muted">{{ user.first_name }} {{ user.last_name }}</h6>
+    <div>
+    {{ user.photo }}
+    </div>
+  </div>
+</div>
+
+{% endblock %}

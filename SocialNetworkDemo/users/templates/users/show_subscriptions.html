@@ -1,0 +1,12 @@
+{% extends 'posts/base.html' %}
+
+{% block content %}
+
+<div>
+    Подписки пользователя {{ user.username }}
+</div>
+{% for user in subscriptions %}
+    {% include 'users/user_card.html' %}
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'posts/base.html' %}
+{% block content %}
+
+<form method="post" action="{% url 'search_users' %}">
+    {% csrf_token %}
+    <div class="input-group mb-3">
+        <input name="search_query" class="form-control" placeholder="Поиск...">
+        <button class="btn btn-outline-secondary" type="submit">Поиск</button>
+    </div>
+</form>
+
+{% for user in possible_users %}
+    {% include 'users/user_card.html' %}
+{% endfor %}
+
+{% endblock %}

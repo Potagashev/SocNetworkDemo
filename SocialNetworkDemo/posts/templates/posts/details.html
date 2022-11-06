@@ -1,0 +1,32 @@
+{% extends 'posts/base.html' %}
+
+{% block content %}
+{% include 'posts/post_card.html' %}
+    <div>Комментарии</div>
+    <hr style="margin-top: 5px;"/>
+        <form method="post" action="{% url 'add_comment' post_id=post.id %}">
+            {% csrf_token %}
+            <div class="input-group mb-3">
+            <input name="comment_text" class="form-control" placeholder="Написать комментарий...">
+            <button class="btn btn-outline-secondary" type="submit">Отправить</button>
+        </div>
+    </form>
+{% if comments %}
+    <ul>
+        {% for comment in comments %}
+            <li>
+                <div class="card" style="margin-bottom: 12px">
+                    <div class="card-body">
+                        <div>{{ comment.user }}
+                            <label style="color: darkgray; margin-left: 5px; font-size: 80%;" class="card-text">
+                                {{ comment.pub_date }}
+                            </label>
+                        </div>
+                        <p class="card-text">{{ comment.text }}</p>
+                    </div>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
+{% endblock %}

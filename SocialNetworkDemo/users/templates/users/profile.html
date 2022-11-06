@@ -1,0 +1,37 @@
+{% extends 'posts/base.html' %}
+
+{% block content %}
+
+{% if user != profile_user %}
+<div>
+    {% if status == 'Подписаться' or status == 'Подписаться в ответ'%}
+        <a href="{% url 'subscribe' user_id=profile_user.id %}">{{status}}</a>
+    {% else %}
+        <a href="{% url 'unsubscribe' user_id=profile_user.id %}">Отписаться</a>
+    {% endif %}
+</div>
+{% endif %}
+<div>
+    {{ profile_user.photo }}
+</div>
+<div>
+    Имя пользователя: {{ profile_user.username }}
+</div>
+<div>
+    Имя: {{ profile_user.first_name }} {{ profile_user.last_name }}
+</div>
+<a href="{% url 'show_followers' user_id=profile_user.id %}">
+    Подписчики: {{ followers_count }}
+</a>
+<a href="{% url 'show_subscriptions' user_id=profile_user.id %}">
+    Подписки: {{ subscriptions_count }}
+</a>
+<hr style="margin-top: 5px;"/>
+{% if user == profile_user %}
+    <a href="{% url 'add_post' %}">Добавить публикацию</a>
+{% endif %}
+
+
+{% include 'posts/posts_list.html' %}
+
+{% endblock %}
