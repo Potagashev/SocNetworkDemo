@@ -23,6 +23,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('posts.urls')),
     path('', include('users.urls')),
+    path('chat/', include("chat.urls")),
+    path('', include('likes.urls'))
 ]
 
 if settings.DEBUG:

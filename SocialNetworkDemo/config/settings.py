@@ -31,14 +31,18 @@ ALLOWED_HOSTS = ['social-network-demo-uspeh.herokuapp.com','127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
+    'daphne',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'posts.apps.PostsConfig',
     'users.apps.UsersConfig',
+    'chat.apps.ChatConfig',
+    'likes.apps.LikesConfig',
 ]
 
 MIDDLEWARE = [
@@ -85,10 +89,10 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'dbf97mucdr1o6c',
-        'USER': 'hulrwusuwfmquu',
-        'PASSWORD': '3510403806d525bc5650ac7f6ef6ffebda9744aa0012d30e7c4fc0b64cdd36e9',
-        'HOST': 'ec2-176-34-215-248.eu-west-1.compute.amazonaws.com',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'KNzMKoK2',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }
@@ -143,3 +147,13 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 # AUTH_USER_MODEL = "users.User"
+
+ASGI_APPLICATION = "config.asgi.application"
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer",
+        # "CONFIG": {
+        #     "hosts": [("127.0.0.1", 6379)],
+        # },
+    },
+}

@@ -45,4 +45,3 @@ def add_comment(request, post_id):
         post_id=post_id
     )
     return redirect('post_details', post_id=post_id)
-
