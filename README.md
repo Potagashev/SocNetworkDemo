@@ -1,12 +1,28 @@
 # SocNetworkDemo
+### Реализован следующий функционал:
+- Вход, регистрация
+- Публикация постов
+- Написание комментариев
+- Подписка на пользователя
+- Лента, состоящая из постов пользователей из подписок
+- Просмотр профиля
+В разработке:
+- лайки на ajax-запросах
+- личные сообщения на websocket'ах
+### Текущий стек
+- Django
+- Postgres
+- HTML, CSS
+- Django Templates 
+
 ## Чтобы запустить, в командной строке нужно:
 ### Клонировать репозиторий
 ```
-    git clone https://github.com/Potagashev/SocNetworkDemo.git
+git clone https://github.com/Potagashev/SocNetworkDemo.git
 ```
 ### Установить зависимости
 ```
-  pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 ### Запустить сервер
 ```
