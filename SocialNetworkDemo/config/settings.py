@@ -26,12 +26,12 @@ SECRET_KEY = 'django-insecure-)$5c-8+-a3nx9cbk8263%nvm_=tex^^glf^aw42k_s86uz=yjl
 DEBUG = True
 
 ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['social-network-demo-uspeh.herokuapp.com','127.0.0.1']
+# ALLOWED_HOSTS = ['social-network-demo-uspeh.herokuapp.com','127.0.0.1']
 
 # Application definition
 
 INSTALLED_APPS = [
-    'daphne',
+    # 'daphne',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -86,14 +86,24 @@ WSGI_APPLICATION = 'config.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'postgres',
+#         'USER': 'postgres',
+#         'PASSWORD': 'KNzMKoK2',
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#     }
+# }
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'KNzMKoK2',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'NAME': os.environ.get('POSTGRES_NAME'),
+        'USER': os.environ.get('POSTGRES_USER'),
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
+        'HOST': 'db',
+        'PORT': 5432,
     }
 }
 
@@ -148,12 +158,14 @@ MEDIA_URL = '/media/'
 
 # AUTH_USER_MODEL = "users.User"
 
-ASGI_APPLICATION = "config.asgi.application"
-CHANNEL_LAYERS = {
-    "default": {
-        "BACKEND": "channels.layers.InMemoryChannelLayer",
-        # "CONFIG": {
-        #     "hosts": [("127.0.0.1", 6379)],
-        # },
-    },
-}
+# from .asgi import application
+#
+# ASGI_APPLICATION = application
+# CHANNEL_LAYERS = {
+#     "default": {
+#         "BACKEND": "channels.layers.InMemoryChannelLayer",
+#         # "CONFIG": {
+#         #     "hosts": [("127.0.0.1", 6379)],
+#         # },
+#     },
+# }
