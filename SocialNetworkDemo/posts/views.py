@@ -6,7 +6,7 @@ from .services import PostsServices, CommentsServices
 
 def home(request):
     if request.user.is_authenticated:
-        posts = PostsServices().get_posts_for_home_page(request=request)
+        posts = PostsServices().get_posts_for_home_page(user=request.user)
         return render(request, 'posts/home.html', context={'posts': posts})
     else:
         return redirect('sign_in')
@@ -30,7 +30,7 @@ def add_post(request):
         form = CreatePostForm(data=request.POST, files=request.FILES)
         if form.is_valid():
             post_data = form.cleaned_data
-            PostsServices().add_post(request=request, post_data=post_data)
+            PostsServices().add_post(user=request.user, post_data=post_data)
             return redirect('profile', user_id=request.user.id)
     else:
         form = CreatePostForm()
@@ -40,7 +40,7 @@ def add_post(request):
 def add_comment(request, post_id):
     comment_text = request.POST.get('comment_text')
     CommentsServices().add_comment(
-        request=request,
+        user=request.user,
         comment_text=comment_text,
         post_id=post_id
     )
