@@ -20,13 +20,9 @@
 ```
 git clone https://github.com/Potagashev/SocNetworkDemo.git
 ```
-### Установить зависимости
+### Находясь в корне проекта, запустить
 ```
-pip install -r requirements.txt
-```
-### Запустить сервер
-```
-python manage.py runserver
+docker-compose up
 ```
 ### Перейти по ссылке
 ```
