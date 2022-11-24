@@ -20,7 +20,11 @@
 ```
 git clone https://github.com/Potagashev/SocNetworkDemo.git
 ```
-### Находясь в корне проекта, запустить
+### Находясь в корне проекта, провести миграции
+```
+docker-compose run web python SocialNetworkDemo/manage.py migrate
+```
+### Запустить
 ```
 docker-compose up
 ```
